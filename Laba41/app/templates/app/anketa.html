@@ -1,0 +1,80 @@
+{% extends "app/layout.html" %}
+{% block content %}
+{% load static %}
+{% if form != None %}
+    <br /><h2>Отправьте пожалуйста заполненную форму</h2><br/>
+      <div>
+          <form method="post">
+              {% csrf_token %}
+              <label for="{{form.name.id_for_label}}"?>{{form.name.label}}:</label>
+              {{form.name}}<br /><br />
+              <label for="{{form.city.id_for_label}}"?>{{form.city.label}}:</label>
+              {{form.city}}<br /><br />
+              <label for="{{form.gender.id_for_label}}"?>{{form.gender.label}}:</label>
+              {{form.gender}}<br /><br />
+              <label for="{{form.notice.id_for_label}}"?>{{form.notice.label}}:</label>
+              {{form.notice}}<br /><br />
+              <label for="{{form.email.id_for_label}}"?>{{form.email.label}}:</label>
+              {{form.email}}<br /><br />
+              <label for="{{form.message.id_for_label}}"?>{{form.message.label}}:</label><br />
+              {{form.message}}<br /><br />
+              <input type="submit" value="Отправить" />
+          </form>
+      </div>  
+{% else %}
+    <br /><h2>Благодарим за ваш отзыв</h2><br />
+    <h3>Вы написали в отзыве следующее</h3>
+    <ul>
+        <li><span>Имя</span> {{ data.name }}</li>
+        <li><span>Город</span> {{ data.city }}</li>
+        <li><span>Пол</span> {{ data.gender }}</li>
+        <li><span>Получать новостную рассылку</span> {{ data.notice }}</li>
+        <li><span>Ваше мыло</span> {{ data.email }}</li>
+        <li><span>Ваш отзыв</span> {{ data.message }}</li>
+    </ul>
+{% endif %}
+<script>
+
+    window.addEventListener("load", function () {
+        $("#send_btn").mouseenter(function () {
+            $("#send_btn").css('background', 'Orange');
+        });
+
+        $("#send_btn").mouseleave(function () {
+            $("#send_btn").css('background', 'White');
+        });
+        
+        $("#id_name").mouseenter(function () {
+            $("#id_name").css('background', 'Orange');
+        });
+
+        $("#id_name").mouseleave(function () {
+            $("#id_name").css('background', 'White');
+        });
+
+        $("#id_city").mouseenter(function () {
+            $("#id_city").css('background', 'Orange');
+        });
+
+        $("#id_city").mouseleave(function () {
+            $("#id_city").css('background', 'White');
+        });
+
+        $("#id_email").mouseenter(function () {
+            $("#id_email").css('background', 'Orange');
+        });
+
+        $("#id_email").mouseleave(function () {
+            $("#id_email").css('background', 'White');
+        });
+
+        $("#id_message").mouseenter(function () {
+            $("#id_message").css('background', 'Orange');
+        });
+
+        $("#id_message").mouseleave(function () {
+            $("#id_message").css('background', 'White');
+        });
+    });
+</script>
+{% endblock %}

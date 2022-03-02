@@ -1,0 +1,14 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<h2>{{ title }}.</h2>
+
+<a href ="https://www.mosigra.ru" target="_blank"> <img src="{% static 'app/content/unnamed.png' %}" width="200" height="200" alt="Logo 1"/></a>
+
+<a href ="https://hobbygames.ru" target="_blank"> <img src="{% static 'app/content/загружено.png' %}" width="200" height="200" alt="Logo 2"/></a>
+
+<a href ="https://hobbyworld.ru" target="_blank"> <img src="{% static 'app/content/cube.png' %}" width="200" height="200" alt="Logo 3"/></a>
+
+{% endblock %}
